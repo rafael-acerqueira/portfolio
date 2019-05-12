@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PROJECTS from './data/projects'
+import Project from './Project'
 
 class Projects extends Component {
   render() {
@@ -9,13 +10,7 @@ class Projects extends Component {
         <div>
           {
             PROJECTS.map(project => 
-              <div key={project.id}>
-                <a href={project.link} target='_blank'>
-                  <p>{project.title}</p>
-                  <img src={project.image} alt={`Image Project ${project.id}`} />
-                  <p>{project.description}</p>
-                </a>
-              </div>
+              <Project key={project.id} project={project} />
             )
           }
         </div>
