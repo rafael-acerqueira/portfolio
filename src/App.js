@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-
+import Projects from './Projects'
 
 class App extends Component {
   state = {
     displayBio: false
   }
-  
+
   toggleDisplayBio = () => {
     this.setState((state, props) => {
       return { displayBio: !state.displayBio }
@@ -30,6 +30,8 @@ class App extends Component {
         }
 
         <button onClick={this.toggleDisplayBio}>{this.state.displayBio ? 'Show less' : 'Read more'}</button>
+        <hr />
+        <Projects />
       </div>
     )
   }
