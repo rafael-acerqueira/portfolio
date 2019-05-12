@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      displayBio: false
+    }
+  }
+
+  toggleDisplayBio = () => {
+    this.setState((state, props) => {
+      return { displayBio: !state.displayBio }
+    })
+  }
+  
+  render() {
+    return(
+      <div>
+        <h1>Hello!</h1>
+        <p>My name is Rafael. I'm software engineer</p>
+        <p>I'm always looking foward to working on meaningful projects</p>
+        {
+          this.state.displayBio 
+          && 
+          <div>
+            <p>Mais informações aqi obre isso</p>
+            <p>E outra</p>
+            <p>E outra</p>
+            
+          </div>
+        }
+
+        <button onClick={this.toggleDisplayBio}>{this.state.displayBio ? 'Show less' : 'Read more'}</button>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
